@@ -6,6 +6,7 @@ export const InventoryRoutes = () => {
   return (
     <>
       <h1>Inventory</h1>
+      <hr />
       <div className="container">
         <Routes>
           <Route path="/product" element={<IndexProductPage />} />

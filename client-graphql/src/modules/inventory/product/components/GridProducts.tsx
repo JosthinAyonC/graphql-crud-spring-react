@@ -41,8 +41,6 @@ export const GridProducts = () => {
 
   return (
     <>
-      <h2>Productos</h2>
-      <hr />
       <div className="gridProducts">
         {products.map((product) => (
           <CardProduct key={product.id} product={product} />

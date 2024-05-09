@@ -1,17 +1,33 @@
-.gridProducts{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+.gridProducts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .cardProduct {
-    align-self: center;
-    margin: 10px 0px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: row;
-    width: 18rem;
-    height: 20rem;
+  align-self: center;
+  margin: 10px 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  height: 20rem;
+}
+
+.cardProduct p {
+  margin: 10px;
+}
+
+.cardProduct h3 {
+  margin: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.small {
+  margin: 10px;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.327);
 }
