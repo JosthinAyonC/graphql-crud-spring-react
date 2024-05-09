@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { GraphQLRouter } from "./router/GraphQLRouter";
 import "./index.css";
-import { GraphQLApp } from "./GraphQLApp";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GraphQLApp />
+    <BrowserRouter>
+      <GraphQLRouter />
+    </BrowserRouter>
   </React.StrictMode>
 );
