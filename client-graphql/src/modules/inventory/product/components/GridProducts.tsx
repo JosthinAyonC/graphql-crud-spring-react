@@ -1,51 +1,35 @@
+import { useQuery } from "@apollo/client";
 import { Producto } from "../data/Product";
+import { getProducts } from "../graphql/querys.graphql";
 import { CardProduct } from "./CardProduct";
 import "./ComponentsStyles.css";
+import { useEffect, useState } from "react";
 
 export const GridProducts = () => {
-  const products: Producto[] = [
-    {
-      id: "DSAJDKAQJH2312131341",
-      nombre: "Producto 1",
-      precio: 100,
-      cantidad: 10,
-      categoriaId: {
-        id: 1,
-        nombre: "Categoria 1",
-        productos: [],
-      },
-    },
-    {
-      id: "DSAJDKAQJH2312131341",
-      nombre: "Producto 2",
-      precio: 200,
-      cantidad: 20,
-      categoriaId: {
-        id: 1,
-        nombre: "Categoria 1",
-        productos: [],
-      },
-    },
-    {
-      id: "DSAJDKAQJH2312131341",
-      nombre: "Producto 3",
-      precio: 300,
-      cantidad: 30,
-      categoriaId: {
-        id: 1,
-        nombre: "Categoria 1",
-        productos: [],
-      },
-    },
-  ];
+  const [productos, setProductos] = useState<Producto[]>([]);
+  const { data, error, loading, refetch } = useQuery(
+    getProducts({ args: ["id", "nombre", "precio", "cantidad"] })
+  );
 
-  return (
-    <>
-      <div className="gridProducts">
-        {products.map((product) => (
-          <CardProduct key={product.id} product={product} />
-        ))}
-      </div>
-    </>
+  useEffect(() => {
+    refetch();
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      setProductos(data.getProductos);
+    }
+  }, [data]);
+
+  return error ? (
+    <h1>Error {error.message}</h1>
+  ) : loading ? (
+    <p>Cargando productos...</p>
+  ) : (
+    <div className="gridProducts">
+      {productos.map((product) => (
+        <CardProduct key={product.id} product={product} />
+      ))}
+    </div>
   );
 };

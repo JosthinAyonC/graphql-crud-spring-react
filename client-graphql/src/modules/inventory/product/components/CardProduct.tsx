@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Producto } from "..";
 import "./ComponentsStyles.css";
 
@@ -14,6 +15,9 @@ export const CardProduct = ({ product }: { product: Producto }) => {
         {product.cantidad}
       </p>
       <small className="small">id: {product.id}</small>
+      <div className="small">
+        <Link to={`/product/${product.id}`}>Ver detalles</Link>
+      </div>
     </div>
   );
 };
