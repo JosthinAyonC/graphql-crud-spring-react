@@ -4,10 +4,15 @@ import { IndexCategoryPage } from "./category/pages/IndexCategoryPage";
 
 export const InventoryRoutes = () => {
   return (
-    <Routes>
-      <Route path="/product" element={<IndexProductPage />} />
-      <Route path="/category" element={<IndexCategoryPage />} />
-      <Route path="/*" element={<Navigate to={"/product"} />} />
-    </Routes>
+    <>
+      <h1>Inventory</h1>
+      <div className="container">
+        <Routes>
+          <Route path="/product" element={<IndexProductPage />} />
+          <Route path="/category" element={<IndexCategoryPage />} />
+          <Route path="/*" element={<Navigate to={"/product"} />} />
+        </Routes>
+      </div>
+    </>
   );
 };

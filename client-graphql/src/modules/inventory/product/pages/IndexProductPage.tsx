@@ -1,3 +1,5 @@
+import { GridProducts } from "../components/GridProducts";
+
 export const IndexProductPage = () => {
-  return <div>IndexProductPage</div>;
+  return <GridProducts />;
 };
