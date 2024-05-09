@@ -21,8 +21,8 @@ type Producto {
   id: ID
   nombre: String
   precio: Float
+  cantidad: Int
   # El signo de interrogación indica que el campo es opcional
-  descripcion: String
   categoriaId: Categoria
 }
 
