@@ -1,0 +1,41 @@
+# Este archivo contiene los esquemas de la API GraphQL, debe llamarse schema.graphqls obligatoriamente.
+
+# En los esquemas el tipo de Query debe llamarse el mismo que el nombre de la interfaz.
+# Ver clase IProductoController.java
+# Es importante que el nombre de los campos coincida con los nombres de los atributos de la clase Producto
+
+type Query {
+  getProductos: [Producto]
+  getProductoById(id: ID!): Producto
+  getCategorias: [Categoria]
+  getCategoriaById(id: ID!): Categoria
+}
+
+type Mutation {
+  addProducto(productoReq: ProductoRq): Producto
+}
+
+# Definicion de los tipos de datos
+type Producto {
+  # El signo de exclamación indica que el campo es obligatorio
+  id: ID
+  nombre: String
+  precio: Float
+  # El signo de interrogación indica que el campo es opcional
+  descripcion: String
+  categoriaId: Categoria
+}
+
+type Categoria {
+  id: ID
+  nombre: String
+  productos: [Producto]
+}
+
+# input se utiliza para definir los argumentos de las mutaciones
+input ProductoRq {
+  nombre: String!
+  precio: Float!
+  cantidad: Int!
+  categoriaId: Int!
+}

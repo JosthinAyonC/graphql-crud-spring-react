@@ -1,0 +1,21 @@
+# PORT
+server:
+  port: ${PORT:8080}
+# POSTGRES
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/graphql}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:lokoloko21}
+    driver-class-name: org.postgresql.Driver
+  graphql:
+    graphiql:
+      enabled: true
+  # Hibernate
+  jpa:
+    generate-ddl: false
+    hibernate.ddl-auto: update
+  # API PATH
+  mvc:
+    servlet:
+      path: /g
