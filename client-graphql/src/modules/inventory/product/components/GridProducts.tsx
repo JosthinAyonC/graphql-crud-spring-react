@@ -4,6 +4,7 @@ import { getProducts } from "../graphql/querys.graphql";
 import { CardProduct } from "./CardProduct";
 import "./ComponentsStyles.css";
 import { useEffect, useState } from "react";
+import { NuevoProducto } from "./NuevoProducto";
 
 export const GridProducts = () => {
   const [productos, setProductos] = useState<Producto[]>([]);
@@ -13,7 +14,7 @@ export const GridProducts = () => {
 
   useEffect(() => {
     refetch();
-  }, []);
+  },);
 
   useEffect(() => {
     if (data) {
@@ -22,14 +23,19 @@ export const GridProducts = () => {
   }, [data]);
 
   return error ? (
-    <h1>Error {error.message}</h1>
+    <>
+      <h1>Error {error.message}</h1>
+    </>
   ) : loading ? (
     <p>Cargando productos...</p>
   ) : (
-    <div className="gridProducts">
-      {productos.map((product) => (
-        <CardProduct key={product.id} product={product} />
-      ))}
-    </div>
+    <>
+      <NuevoProducto />
+      <div className="gridProducts">
+        {productos.map((product) => (
+          <CardProduct key={product.id} product={product} />
+        ))}
+      </div>
+    </>
   );
 };

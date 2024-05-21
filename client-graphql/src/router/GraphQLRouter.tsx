@@ -9,13 +9,13 @@ export const GraphQLRouter = () => {
   );
 };
 
-export const PrivateRoutes = ({ children }: { children: any }) => {
+export const PrivateRoutes = ({ children }: { children: React.ReactNode }) => {
   //   const { logged } = useContext(AuthContext);
   //   return logged ? children : <Navigate to={"/auth/login"} />;
   return children;
 };
 
-export const PublicRoutes = ({ children }: { children: any }) => {
+export const PublicRoutes = ({ children }: { children: React.ReactNode }) => {
   //   const { logged } = useContext(AuthContext);
   //   return !logged ? children : <Navigate to={"/"} />;
   return children;

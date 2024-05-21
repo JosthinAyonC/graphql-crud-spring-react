@@ -26,4 +26,20 @@ export const getProductById = ({
           }
         }
       }
-    `;
+`;
+
+// Add product
+export const ADD_PRODUCTO = gql`
+  mutation AddProducto($productoReq: ProductoRq!) {
+    addProducto(productoReq: $productoReq) {
+      id
+      nombre
+      precio
+      cantidad
+      categoriaId {
+        id
+        nombre
+      }
+    }
+  }
+`;
